@@ -26,7 +26,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deployment stage reached successfully'
+                sh '''
+rm -rf /var/www/todo/*
+cp index.html script.js style.css /var/www/todo
+'''
+echo 'Deployement completed successfully'
+
             }
         }
     }
